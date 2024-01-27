@@ -33,7 +33,7 @@ COPY . .
 # 将 web-user 和 web-admin 的构建结果复制到指定位置
 COPY --from=react-builder /app/web-user/build ./web-user/build
 COPY --from=react-builder /app/web-admin/build ./web-admin/build
-RUN go build -ldflags "-s -w -X 'one-api/common.Version=${GIT_TAG}' -extldflags '-static'" -o chat-api
+RUN go build -ldflags "-s -w -X 'one-api/common.Version=lastest' -extldflags '-static'" -o chat-api
 
 # Use a minimal alpine image for the final stage
 FROM alpine
